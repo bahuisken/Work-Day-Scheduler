@@ -22,7 +22,7 @@ var currentDate = '';
 var currentHour = parseInt(luxon.DateTime.local().toFormat('H'))
 var workHours = ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM']
 $('#currentDay').text(now);
-
+document.title = "Work Day Scheduler: " + luxon.DateTime.local().toFormat('D');
 //Functions
 // JavaScript function that wraps everything
 $(document).ready(function () {
