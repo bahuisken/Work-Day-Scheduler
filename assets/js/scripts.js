@@ -20,7 +20,7 @@
 var now = luxon.DateTime.local().toFormat('MMMM dd, yyyy')
 var currentDate = '';
 var currentHour = parseInt(luxon.DateTime.local().toFormat('H'))
-var workHours = ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM']
+var workHours = ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM']
 $('#currentDay').text(now);
 document.title = "Work Day Scheduler: " + luxon.DateTime.local().toFormat('D');
 //Functions
@@ -34,7 +34,7 @@ $(document).ready(function () {
             return;
         }
         else {
-            removeTasks = ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM'];
+            removeTasks = ['9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM'];
             for (key of removeTasks) {
                 localStorage.removeItem(key);
             }
