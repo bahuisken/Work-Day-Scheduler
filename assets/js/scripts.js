@@ -62,6 +62,7 @@ $(document).ready(function () {
         //Text area Creation
         var newHourTextArea = $('<textarea>');
         newHourTextArea.attr('data-idx', workHours[i]);
+        //If there is a task saved in Local Storage, display it
         var setTask = localStorage.getItem(workHours[i]);
         newHourTextArea.val(setTask);
         newHourRow.append(newHourTextArea);
@@ -92,11 +93,16 @@ $(document).ready(function () {
 
     }
 
+    // Event listener on Save button that is clicked. Takes in data-idx and value of associated textarea and saving in Local Storage
     $(".saveBtn").on("click", function () {
         console.log(this)
         var time = $(this).siblings('textarea').attr('data-idx');
         var value = $(this).siblings('textarea').val().trim()
-        localStorage.setItem(time, value)
+        localStorage.setItem(time, value);
+        analytics.track('Save Button Clicked', {
+            task_time: time,
+            task_text: value
+        });
         console.log(time);
     })
 
